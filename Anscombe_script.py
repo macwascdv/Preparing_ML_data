@@ -2,7 +2,7 @@ import seaborn as sns
 import os
 
 
-SAVE_DIR = os.path.join(os.getcwd(), "Anscombe's quartet")
+SAVE_DIR = os.path.join(os.getcwd(), "Anscombe's_quartet")
 
 def anscombe_data():
     """
