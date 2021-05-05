@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 
-SAVE_DIR = os.path.join(os.getcwd(), "Anscombe's quartet")
+SAVE_DIR = os.path.join(os.getcwd(), "Anscombe's_quartet")
 
 def anscombe_data():
     """
