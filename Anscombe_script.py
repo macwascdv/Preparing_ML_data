@@ -1,5 +1,6 @@
 import seaborn as sns
 import os
+import pandas as pd
 
 
 SAVE_DIR = os.path.join(os.getcwd(), "Anscombe's quartet")
@@ -19,12 +20,12 @@ def anscombe_data():
     data = sns.load_dataset('anscombe')
 
     #Creating data frame with calculated mean and standard deviation
-    description = data.groupby('dataset').describe().loc[:,(slice(None),['mean','std'])]
+    description = data.groupby('dataset').describe().loc[:, (slice(None), ['mean', 'std'])]
 
     #Calculating variance and merging both dataframes
     variance = data.groupby('dataset').var()
     variance.rename(columns={'x': '(x, var)', 'y': '(y,var)'}, inplace=True)
-    description = description.join(variance).round(2)
+    description = pd.concat([description, variance.round(2)], axis=1)
 
     return data, description
 
